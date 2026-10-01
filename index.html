@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>نوڤا</title>
+<meta name="theme-color" content="#F7F5FC">
+<meta name="description" content="طريقك أذكى.. وزحمة أقل. اختصارات موثوقة لطرق الرياض مع قوقل ماب.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="نوڤا">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F5FC; --surface:#FFFFFF; --ink:#231E3D; --muted:#7C7696; --line:#E9E4F5;
+  --p1:#B39AF0; --p2:#6E5FD6; --primary:#6E5FD6; --soft:#F1EDFC; --soft2:#E7E0FB;
+  --g:#1A73E8; --ok:#1E9E62;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);min-height:100%;
+  font-family:"Tajawal",system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;font-size:16px;line-height:1.55;-webkit-tap-highlight-color:transparent}
+button,input{font:inherit;color:inherit}
+button,a{transition:transform .15s ease,background-color .2s ease,border-color .2s ease,box-shadow .2s ease}
+button:active,a.btn:active{transform:scale(.97)}
+:focus-visible{outline:3px solid var(--p1);outline-offset:2px}
+.app{max-width:480px;margin:0 auto;padding:0 18px 104px}
+[hidden]{display:none!important}
+
+/* header */
+.top{display:flex;align-items:center;justify-content:space-between;padding:14px 0 10px}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--p1),var(--p2));display:grid;place-items:center;box-shadow:0 6px 16px rgba(110,95,214,.3)}
+.brand b{display:block;font-size:1.35rem;font-weight:800;line-height:1.1}
+.brand small{color:var(--muted);font-size:.82rem}
+.lang{height:40px;min-width:48px;padding:0 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);cursor:pointer;font-weight:700}
+.lang:hover{border-color:var(--p1)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;border-radius:28px;padding:22px 20px 118px;color:#fff;
+  background:linear-gradient(150deg,#A88BEE 0%,#7B67DD 55%,#5B4CC4 100%)}
+.hero p{margin:0;opacity:.9;font-size:.98rem}
+.hero h1{margin:2px 0 0;font-size:1.8rem;font-weight:800;line-height:1.25}
+.sky{position:absolute;inset-inline:0;bottom:0;width:100%;height:auto;display:block}
+.star{position:absolute;opacity:.85;animation:tw 3s ease-in-out infinite}
+@keyframes tw{50%{opacity:.25;transform:scale(.7)}}
+
+/* search card */
+.card{background:var(--surface);border:1.5px solid var(--line);border-radius:24px;padding:16px;margin-top:14px;box-shadow:0 10px 30px rgba(35,30,61,.05)}
+.pull{margin-top:-30px;position:relative}
+.trip{position:relative;display:grid;gap:8px}
+.leg{display:flex;align-items:center;gap:10px;background:var(--soft);border:1.5px solid transparent;border-radius:16px;padding:4px 6px 4px 12px}
+[dir="rtl"] .leg{padding:4px 12px 4px 6px}
+.leg:focus-within{border-color:var(--p1);background:var(--surface)}
+.leg .ic{flex:none;width:12px;height:12px;border-radius:50%}
+.leg .ic.a{border:3px solid var(--p2)}
+.leg .ic.b{background:var(--p2);border-radius:3px;transform:rotate(45deg)}
+.leg input{flex:1;min-width:0;border:0;background:transparent;padding:10px 0;outline:none}
+.leg input::placeholder{color:var(--muted)}
+.leg .me{display:flex;align-items:center;gap:6px;flex:1;padding:10px 0;color:var(--primary);font-weight:700}
+.pin{width:8px;height:8px;border-radius:50%;background:var(--g);box-shadow:0 0 0 4px rgba(26,115,232,.18)}
+.mini{border:0;background:transparent;color:var(--muted);cursor:pointer;padding:6px 8px;border-radius:10px;font-size:.85rem;white-space:nowrap}
+.mini:hover{background:var(--soft2);color:var(--primary)}
+.line{position:absolute;inset-inline-start:17px;top:36px;height:18px;border-inline-start:2px dotted var(--p1)}
+.unused-swap{position:absolute;inset-inline-end:-6px;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;border:1.5px solid var(--line);background:var(--surface);cursor:pointer;display:grid;place-items:center;color:var(--primary)}
+.swap:hover{border-color:var(--p1)}
+.sugg{list-style:none;margin:6px 0 0;padding:6px;border:1.5px solid var(--line);border-radius:16px;background:var(--surface)}
+.sugg button{width:100%;text-align:start;border:0;background:none;padding:9px 10px;border-radius:10px;cursor:pointer;display:flex;gap:10px;align-items:center}
+.sugg button:hover{background:var(--soft)}
+.chips{display:flex;gap:8px;overflow-x:auto;margin:12px -16px 0;padding:2px 16px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 13px;cursor:pointer;font-size:.88rem}
+.chip:hover{border-color:var(--p1);background:var(--soft)}
+.chip.add{border-style:dashed;color:var(--muted)}
+.cta{width:100%;margin-top:14px;border:0;border-radius:18px;padding:15px;cursor:pointer;font-weight:800;font-size:1.05rem;color:#fff;
+  background:linear-gradient(90deg,var(--p1),var(--p2));box-shadow:0 10px 22px rgba(110,95,214,.3)}
+.cta:hover{box-shadow:0 12px 26px rgba(110,95,214,.4)}
+.err{color:#C62B4A;font-size:.88rem;text-align:center;margin:8px 0 0}
+
+/* result sheet */
+.sheet{animation:up .35s cubic-bezier(.2,.8,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.rhead{display:flex;align-items:flex-start;gap:12px}
+.rhead .dest{flex:1;min-width:0}
+.rhead small{color:var(--muted);font-size:.85rem}
+.rhead h2{margin:0;font-size:1.3rem;line-height:1.3;overflow-wrap:anywhere}
+.fav{flex:none;width:42px;height:42px;border-radius:50%;border:1.5px solid var(--line);background:var(--surface);cursor:pointer;font-size:1.25rem;color:var(--muted)}
+.fav.on{color:#F2A900;border-color:#F6D47A;background:#FFF8E1}
+.go{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:14px;text-decoration:none;color:#fff;font-weight:800;font-size:1.05rem;
+  background:var(--g);border-radius:18px;padding:15px;box-shadow:0 10px 22px rgba(26,115,232,.28)}
+.go:hover{box-shadow:0 12px 26px rgba(26,115,232,.38)}
+.alt{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px;text-decoration:none;color:var(--g);font-weight:700;
+  border:1.5px solid #CFE0FB;background:#F3F8FF;border-radius:16px;padding:12px}
+.alt:hover{border-color:var(--g)}
+.sc-h{display:flex;align-items:center;gap:8px;margin:20px 0 2px}
+.sc-h h3{margin:0;font-size:1.05rem}
+.sc-p{margin:0 0 10px;color:var(--muted);font-size:.88rem}
+.seg{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin-bottom:10px}
+.seg::-webkit-scrollbar{display:none}
+.seg button{flex:none;border:1.5px solid var(--line);background:var(--surface);padding:7px 13px;border-radius:999px;cursor:pointer;font-size:.88rem;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--p2);border-color:var(--p2);color:#fff;font-weight:700}
+.sc{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;padding:12px;border-radius:16px;border:1.5px solid var(--line);margin-top:8px;background:var(--surface)}
+.sc:hover{border-color:var(--p1);background:var(--soft)}
+.sc .n{flex:none;width:36px;height:36px;border-radius:12px;background:var(--soft2);display:grid;place-items:center;color:var(--primary)}
+.sc b{display:block;font-size:.95rem}
+.sc small{color:var(--muted);font-size:.82rem}
+.sc .ar{margin-inline-start:auto;color:var(--g);font-weight:700;font-size:.85rem;white-space:nowrap}
+.howto{margin-top:12px;background:var(--soft);border-radius:16px;padding:12px 14px;font-size:.88rem;color:var(--ink)}
+
+/* sections */
+.sec{display:flex;justify-content:space-between;align-items:center;margin:22px 0 6px}
+.sec h2{margin:0;font-size:1.12rem}
+.link{border:0;background:none;color:var(--primary);cursor:pointer;font-size:.9rem;padding:4px}
+.row{display:flex;align-items:center;gap:12px;width:100%;text-align:start;border:0;background:none;cursor:pointer;padding:11px 4px;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+.row .i{flex:none;width:38px;height:38px;border-radius:12px;background:var(--soft);display:grid;place-items:center}
+.row b{display:block;font-weight:500}
+.row small{color:var(--muted)}
+.row .x{margin-inline-start:auto}
+.page-h{margin:8px 0 2px;font-size:1.5rem;font-weight:800}
+.page-p{margin:0 0 6px;color:var(--muted);font-size:.92rem}
+.live{display:flex;align-items:center;gap:14px;text-decoration:none;color:#fff;border-radius:24px;padding:18px;margin-top:12px;
+  background:linear-gradient(135deg,#34A853,#1E8E3E);box-shadow:0 10px 24px rgba(30,142,62,.25)}
+.live b{display:block;font-size:1.1rem}
+.live small{opacity:.9}
+.dotlive{width:12px;height:12px;border-radius:50%;background:#fff;flex:none;animation:pulse 1.6s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.7)}100%{box-shadow:0 0 0 12px rgba(255,255,255,0)}}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.area{display:block;text-decoration:none;color:inherit;background:var(--surface);border:1.5px solid var(--line);border-radius:20px;padding:14px}
+.area:hover{border-color:var(--p1);background:var(--soft)}
+.area .e{font-size:1.5rem}
+.area b{display:block;margin-top:4px}
+.area small{color:var(--muted);font-size:.8rem}
+.place{display:grid;gap:8px;margin-top:6px}
+.place label{font-size:.88rem;color:var(--muted)}
+.inrow{display:flex;gap:8px}
+.inrow input{flex:1;min-width:0;border:1.5px solid var(--line);background:var(--soft);border-radius:14px;padding:11px 12px;outline:none}
+.inrow input:focus{border-color:var(--p1);background:var(--surface)}
+.inrow button{border:0;border-radius:14px;padding:0 16px;background:var(--p2);color:#fff;font-weight:700;cursor:pointer}
+.del{border:0;background:var(--soft);border-radius:10px;padding:7px 10px;cursor:pointer;color:#C62B4A;font-size:.82rem}
+.empty{text-align:center;padding:22px 10px;color:var(--muted)}
+.empty .big{font-size:2rem}
+.empty b{display:block;color:var(--ink)}
+.install{display:flex;gap:12px;align-items:flex-start;margin-top:14px;background:var(--surface);border:1.5px dashed var(--p1);border-radius:20px;padding:14px;animation:up .4s ease both}
+.install .ic{flex:none;width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--p1),var(--p2));display:grid;place-items:center}
+.install h3{margin:0;font-size:1rem}
+.install p{margin:2px 0 0;font-size:.86rem;color:var(--muted)}
+.install .acts{display:flex;gap:8px;margin-top:8px}
+.install .acts button{border:0;border-radius:12px;padding:8px 14px;cursor:pointer;font-weight:700;font-size:.88rem}
+.install .yes{background:var(--p2);color:#fff}
+.install .no{background:var(--soft);color:var(--muted)}
+.share{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:16px;border:1.5px solid var(--line);background:var(--surface);border-radius:16px;padding:13px;cursor:pointer;font-weight:700;color:var(--primary)}
+.share:hover{border-color:var(--p1);background:var(--soft)}
+.about{margin-top:18px;text-align:center;color:var(--muted);font-size:.8rem}
+
+/* nav */
+nav{position:fixed;bottom:0;left:0;right:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-top:1px solid var(--line);padding:8px 8px calc(8px + env(safe-area-inset-bottom,0px))}
+nav .in{max-width:480px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr)}
+nav button{border:0;background:none;cursor:pointer;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:2px;font-size:.8rem;padding:4px 0;position:relative}
+nav button svg{width:24px;height:24px}
+nav button[aria-current="page"]{color:var(--primary);font-weight:700}
+nav button[aria-current="page"]::before{content:"";position:absolute;top:-9px;width:28px;height:3px;border-radius:0 0 3px 3px;background:var(--p2)}
+
+/* toast + splash */
+.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);opacity:0;z-index:30;
+  background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-size:.92rem;transition:.3s ease;width:max-content;max-width:90vw;text-align:center;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.splash{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#fff;
+  background:linear-gradient(160deg,#A88BEE,#5B4CC4);transition:opacity .5s ease}
+.splash.out{opacity:0;pointer-events:none}
+.splash .big{width:92px;height:92px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center;animation:pop .9s cubic-bezier(.2,.8,.2,1) both}
+.splash b{font-size:2.3rem;font-weight:800;line-height:1.1;animation:fade .6s .3s both}
+.splash span{opacity:.9;animation:fade .6s .45s both}
+@keyframes pop{from{transform:scale(.3) rotate(-120deg);opacity:0}to{transform:none;opacity:1}}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="splash" id="splash"><div class="big"><svg width="50" height="50" viewBox="0 0 26 26"><path d="M13 1 L15.6 10.4 L25 13 L15.6 15.6 L13 25 L10.4 15.6 L1 13 L10.4 10.4 Z" fill="#fff"/></svg></div><b id="spN"></b><span id="spT"></span></div>
+<div class="toast" id="toast" role="status"></div>
+
+<div class="app">
+  <header class="top">
+    <div class="brand">
+      <div class="logo" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 26 26"><path d="M13 1 L15.6 10.4 L25 13 L15.6 15.6 L13 25 L10.4 15.6 L1 13 L10.4 10.4 Z" fill="#fff"/></svg></div>
+      <div><b id="bName"></b><small id="bSub"></small></div>
+    </div>
+    <button class="lang" id="langBtn"></button>
+  </header>
+
+  <!-- HOME -->
+  <section id="v-home">
+    <div class="hero">
+      <svg class="star" style="top:18px;inset-inline-end:28px" width="14" height="14" viewBox="0 0 26 26"><path d="M13 1 L15.6 10.4 L25 13 L15.6 15.6 L13 25 L10.4 15.6 L1 13 L10.4 10.4 Z" fill="#fff"/></svg>
+      <svg class="star" style="top:40px;inset-inline-end:52px;animation-delay:1.2s" width="9" height="9" viewBox="0 0 26 26"><path d="M13 1 L15.6 10.4 L25 13 L15.6 15.6 L13 25 L10.4 15.6 L1 13 L10.4 10.4 Z" fill="#fff"/></svg>
+      <p id="greet"></p>
+      <h1 id="hQ"></h1>
+      <svg class="sky" viewBox="0 0 400 90" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+        <g fill="#fff" opacity=".22">
+          <rect x="10" y="60" width="26" height="30"/><rect x="40" y="48" width="20" height="42"/><rect x="64" y="66" width="30" height="24"/>
+          <rect x="300" y="56" width="24" height="34"/><rect x="328" y="40" width="18" height="50"/><rect x="350" y="62" width="40" height="28"/>
+        </g>
+        <g fill="#fff" opacity=".45">
+          <!-- Kingdom Centre -->
+          <path d="M226 90 L226 30 Q238 2 250 30 L250 90 Z M232 34 Q238 18 244 34 Z" fill-rule="evenodd"/>
+          <!-- Al Faisaliah -->
+          <path d="M150 90 L166 20 L182 90 Z"/><circle cx="166" cy="40" r="5" fill="#7B67DD"/>
+          <rect x="110" y="58" width="22" height="32"/><rect x="190" y="64" width="26" height="26"/><rect x="262" y="52" width="22" height="38"/>
+        </g>
+        <path d="M0 86 Q100 78 200 86 T400 84 L400 90 L0 90Z" fill="#fff" opacity=".35"/>
+      </svg>
+    </div>
+
+    <div class="card pull">
+      <div class="trip">
+        <div class="leg" id="fromLeg">
+          <span class="ic a"></span>
+          <div class="me" id="meBox"><span class="pin"></span><span id="meL"></span></div>
+          <input id="from" autocomplete="off" hidden>
+          <button class="mini" id="fromToggle"></button>
+        </div>
+        <span class="line" aria-hidden="true"></span>
+        <div class="leg">
+          <span class="ic b"></span>
+          <input id="to" autocomplete="off" enterkeyhint="go">
+          <button class="mini" id="clr" hidden aria-label="clear">✕</button>
+        </div>
+      </div>
+      <ul class="sugg" id="sugg" hidden></ul>
+      <div class="chips" id="chips"></div>
+      <button class="cta" id="goBtn"></button>
+      <p class="err" id="err" hidden></p>
+    </div>
+
+    <div id="install"></div>
+    <div id="result"></div>
+
+    <div id="recentBox">
+      <div class="sec"><h2 id="recT"></h2><button class="link" id="recClr"></button></div>
+      <div class="card" style="margin-top:0;padding:6px 12px" id="recList"></div>
+    </div>
+  </section>
+
+  <!-- TRAFFIC -->
+  <section id="v-traffic" hidden>
+    <h1 class="page-h" id="tH"></h1>
+    <p class="page-p" id="tP"></p>
+    <a class="live" id="liveAll" target="_blank" rel="noopener"><span class="dotlive"></span><span><b id="liveT"></b><small id="liveS"></small></span></a>
+    <div class="sec"><h2 id="areaT"></h2></div>
+    <div class="grid" id="areas" style="margin-top:0"></div>
+  </section>
+
+  <!-- FAVS -->
+  <section id="v-favs" hidden>
+    <h1 class="page-h" id="fH"></h1>
+    <p class="page-p" id="fP"></p>
+    <div class="card">
+      <div class="place"><label for="homeIn" id="homeL"></label><div class="inrow"><input id="homeIn"><button id="homeSave"></button></div></div>
+      <div class="place" style="margin-top:12px"><label for="workIn" id="workL"></label><div class="inrow"><input id="workIn"><button id="workSave"></button></div></div>
+    </div>
+    <div class="sec"><h2 id="favT"></h2></div>
+    <div class="card" style="margin-top:0;padding:6px 12px" id="favList"></div>
+    <button class="share" id="shareBtn"></button>
+  </section>
+
+  <p class="about" id="about"></p>
+</div>
+
+<nav><div class="in" id="nav"></div></nav>
+
+<script>
+const STAR='<svg width="20" height="20" viewBox="0 0 26 26"><path d="M13 1 L15.6 10.4 L25 13 L15.6 15.6 L13 25 L10.4 15.6 L1 13 L10.4 10.4 Z" fill="currentColor"/></svg>';
+const GPIN='<svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z" fill="#EA4335"/><circle cx="12" cy="9" r="2.6" fill="#fff"/></svg>';
+
+const T={
+ar:{name:'نوڤا',sub:'Nova',lang:'EN',tag:'طريقك أذكى.. وزحمة أقل',gm:'صباح الخير 👋',ge:'مساء الخير 👋',q:'إلى أين تريد الذهاب؟',
+ me:'موقعي الحالي',change:'تغيير',useMe:'موقعي',fromPh:'من وين؟ اكتب نقطة البداية',toPh:'وين رايح؟ مثل: برج المملكة',
+ go:'اعرض الطريق',errTo:'اكتب وجهتك أولًا',errFrom:'اكتب نقطة البداية أو استخدم موقعك',
+ home:'البيت',work:'الدوام',addHome:'أضف البيت',
+ quick:['برج المملكة','بوليفارد رياض سيتي','الرياض بارك','المعيقلية','مطار الملك خالد','جامعة الملك سعود'],
+ to:'رحلتك إلى',from:'من',nav:'ابدأ الملاحة في قوقل ماب',view:'شوف الطرق والوقت قبل ما تطلع',
+ scH:'اختصارات نوڤا',scP:'إذا طريقك يمر بطريق مزدحم، اختر الطريق اللي تبي تتجنبه، ونوڤا يمرّرك بشارع موازي. قوقل ماب يحسب لك الوقت الحقيقي وتقارن.',
+ avoid:'أتجنب:',open:'افتح ←',
+ how:'💡 قارن وقت الاختصار في قوقل ماب مع الطريق العادي، واختار الأسرع.',
+ saved:'انحفظت في المفضلة ★',unsaved:'انشالت من المفضلة',savedPlace:'تم الحفظ ✓',
+ recT:'آخر وجهاتك',recClr:'مسح',recEmpty:'وجهاتك الأخيرة بتظهر هنا',
+ tH:'الزحام المباشر',tP:'زحمة الرياض الحين من قوقل ماب، تتحدث لحظة بلحظة.',liveT:'خريطة زحام الرياض كاملة',liveS:'افتحها في قوقل ماب',areaT:'اختر منطقتك',
+ fH:'المفضلة',fP:'احفظ أماكنك المهمة عشان توصلها بضغطة.',homeL:'🏠 عنوان البيت',workL:'💼 عنوان الدوام',save:'حفظ',placePh:'مثل: حي الملقا، الرياض',
+ favT:'أماكن محفوظة',favEmpty:'ما عندك أماكن محفوظة',favEmptyP:'اضغط ☆ على أي رحلة لحفظها هنا.',del:'حذف',
+ tabs:['الرئيسية','الزحام','المفضلة'],
+ about:'نوڤا يعتمد على قوقل ماب للخرائط والزحام المباشر.',
+ insT:'ثبّت نوڤا على جوالك',insA:'يصير له أيقونة ويفتح مثل أي تطبيق.',insBtn:'ثبّت',later:'لاحقًا',
+ insIOS:'في سفاري: اضغط زر المشاركة ⬆️ ثم «إضافة إلى الشاشة الرئيسية».',insAnd:'من قائمة المتصفح ⋮ اختر «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية».',
+ share:'شارك نوڤا',shareTxt:'جرّب نوڤا: طريقك أذكى.. وزحمة أقل',copied:'انتسخ الرابط ✓'},
+en:{name:'Nova',sub:'نوڤا',lang:'ع',tag:'Smarter route, less traffic',gm:'Good morning 👋',ge:'Good evening 👋',q:'Where do you want to go?',
+ me:'My location',change:'Change',useMe:'Me',fromPh:'Starting point',toPh:'Where to? e.g. Kingdom Centre',
+ go:'Show route',errTo:'Type your destination first',errFrom:'Type a starting point or use your location',
+ home:'Home',work:'Work',addHome:'Add home',
+ quick:['Kingdom Centre','Boulevard Riyadh City','Riyadh Park','Al Muaiqiliya','King Khalid Airport','King Saud University'],
+ to:'Trip to',from:'From',nav:'Start navigation in Google Maps',view:'See routes and times first',
+ scH:'Nova shortcuts',scP:'If your route uses a busy road, pick the road to avoid and Nova routes you through a parallel street. Google Maps shows the real time so you can compare.',
+ avoid:'Avoid:',open:'Open →',
+ how:'💡 Compare the shortcut time in Google Maps with the normal route and pick the faster one.',
+ saved:'Saved to favorites ★',unsaved:'Removed from favorites',savedPlace:'Saved ✓',
+ recT:'Recent destinations',recClr:'Clear',recEmpty:'Your recent destinations will appear here',
+ tH:'Live traffic',tP:'Riyadh traffic right now from Google Maps, updated live.',liveT:'Full Riyadh traffic map',liveS:'Open in Google Maps',areaT:'Pick your area',
+ fH:'Favorites',fP:'Save your key places to reach them in one tap.',homeL:'🏠 Home address',workL:'💼 Work address',save:'Save',placePh:'e.g. Al Malqa, Riyadh',
+ favT:'Saved places',favEmpty:'No saved places yet',favEmptyP:'Tap ☆ on any trip to save it here.',del:'Delete',
+ tabs:['Home','Traffic','Favorites'],
+ about:'Nova uses Google Maps for maps and live traffic.',
+ insT:'Install Nova on your phone',insA:'Get an app icon that opens like any app.',insBtn:'Install',later:'Later',
+ insIOS:'In Safari: tap Share ⬆️ then “Add to Home Screen”.',insAnd:'From the browser menu ⋮ choose “Install app” or “Add to Home screen”.',
+ share:'Share Nova',shareTxt:'Try Nova: smarter route, less traffic',copied:'Link copied ✓'}
+};
+
+/* Nova shortcuts: busy road -> parallel streets (sent to Google Maps as a waypoint) */
+const SC=[
+ {id:'kfr',ar:'طريق الملك فهد',en:'King Fahd Rd',alts:[
+  {ar:'شارع العليا العام',en:'Olaya Street',q:'Olaya Street, Riyadh',dAr:'موازي من جهة الشرق',dEn:'Parallel, east side'},
+  {ar:'شارع التخصصي',en:'Takhassusi Street',q:'Takhassusi Street, Riyadh',dAr:'موازي من جهة الغرب',dEn:'Parallel, west side'},
+  {ar:'طريق الملك عبدالعزيز',en:'King Abdulaziz Road',q:'King Abdulaziz Road, Riyadh',dAr:'بديل أبعد شرقًا',dEn:'Wider bypass to the east'}]},
+ {id:'kar',ar:'طريق الملك عبدالعزيز',en:'King Abdulaziz Rd',alts:[
+  {ar:'طريق أبو بكر الصديق',en:'Abu Bakr Al Siddiq Road',q:'Abu Bakr Al Siddiq Road, Riyadh',dAr:'موازي من جهة الشرق',dEn:'Parallel, east side'},
+  {ar:'شارع العليا العام',en:'Olaya Street',q:'Olaya Street, Riyadh',dAr:'موازي من جهة الغرب',dEn:'Parallel, west side'}]},
+ {id:'abs',ar:'طريق أبو بكر الصديق',en:'Abu Bakr Rd',alts:[
+  {ar:'طريق الملك عبدالعزيز',en:'King Abdulaziz Road',q:'King Abdulaziz Road, Riyadh',dAr:'موازي من جهة الغرب',dEn:'Parallel, west side'},
+  {ar:'طريق عثمان بن عفان',en:'Othman Bin Affan Road',q:'Othman Bin Affan Road, Riyadh',dAr:'موازي من جهة الشرق',dEn:'Parallel, east side'}]}
+];
+const AREAS=[
+ {e:'🏙️',ar:'العليا والسليمانية',en:'Olaya & Sulaimaniyah',sAr:'وسط الأعمال',sEn:'Business district',ll:[24.703,46.684],z:14},
+ {e:'🌴',ar:'شمال الرياض',en:'North Riyadh',sAr:'الملقا، الياسمين، النرجس',sEn:'Malqa, Yasmin, Narjis',ll:[24.815,46.640],z:13},
+ {e:'🕌',ar:'وسط البلد',en:'Downtown',sAr:'البطحاء، المعيقلية، المربع',sEn:'Batha, Muaiqiliya, Murabba',ll:[24.640,46.712],z:14},
+ {e:'🌅',ar:'شرق الرياض',en:'East Riyadh',sAr:'الروضة، النسيم، الدائري الشرقي',sEn:'Rawdah, Naseem, Eastern Ring',ll:[24.735,46.790],z:13},
+ {e:'🎓',ar:'غرب الرياض',en:'West Riyadh',sAr:'الجامعة، طريق مكة، الدرعية',sEn:'KSU, Makkah Rd, Diriyah',ll:[24.720,46.610],z:13},
+ {e:'✈️',ar:'طريق المطار',en:'Airport Road',sAr:'المطار وما حوله',sEn:'Airport and around',ll:[24.890,46.700],z:12}
+];
+
+const store={get(k,d){try{const v=localStorage.getItem('nova2:'+k);return v?JSON.parse(v):d}catch(e){return d}},
+ set(k,v){try{localStorage.setItem('nova2:'+k,JSON.stringify(v))}catch(e){}}};
+const S={lang:store.get('lang','ar'),tab:'home',useMe:true,dest:'',origin:'',sc:'kfr',
+ recent:store.get('recent',[]),favs:store.get('favs',[]),home:store.get('home',''),work:store.get('work','')};
+const $=id=>document.getElementById(id);
+const t=()=>T[S.lang];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const withCity=s=>/riyadh|الرياض/i.test(s)?s:s+(S.lang==='ar'?'، الرياض':', Riyadh');
+
+/* Google Maps URLs */
+function gDir({nav=false,waypoint=''}={}){
+ let u='https://www.google.com/maps/dir/?api=1&travelmode=driving&destination='+encodeURIComponent(withCity(S.dest));
+ if(!S.useMe&&S.origin)u+='&origin='+encodeURIComponent(withCity(S.origin));
+ if(waypoint)u+='&waypoints='+encodeURIComponent(waypoint);
+ if(nav)u+='&dir_action=navigate';
+ return u}
+const gTraffic=(ll,z)=>`https://www.google.com/maps/@${ll[0]},${ll[1]},${z}z/data=!5m1!1e1`;
+
+function toast(m){const e=$('toast');e.textContent=m;e.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('show'),2200)}
+
+/* ---------- home ---------- */
+function renderFrom(){const x=t();$('meBox').hidden=!S.useMe;$('from').hidden=S.useMe;$('fromToggle').textContent=S.useMe?x.change:x.useMe;}
+function renderChips(){const x=t();let h='';
+ if(S.home)h+=`<button class="chip" data-v="${esc(S.home)}">🏠 ${x.home}</button>`;
+ if(S.work)h+=`<button class="chip" data-v="${esc(S.work)}">💼 ${x.work}</button>`;
+ if(!S.home)h+=`<button class="chip add" id="addHome">＋ ${x.addHome}</button>`;
+ h+=x.quick.map(q=>`<button class="chip" data-v="${esc(q)}">${esc(q)}</button>`).join('');
+ $('chips').innerHTML=h;
+ $('chips').querySelectorAll('.chip[data-v]').forEach(c=>c.onclick=()=>{$('to').value=c.dataset.v;$('clr').hidden=false;submit()});
+ const ah=$('addHome');if(ah)ah.onclick=()=>{go('favs');setTimeout(()=>$('homeIn').focus(),50)}}
+function suggest(){const v=$('to').value.trim().toLowerCase(),u=$('sugg');
+ if(!v){u.hidden=true;return}
+ const pool=[...new Set([...S.recent,...S.favs,...T.ar.quick,...T.en.quick])].filter(p=>p.toLowerCase().includes(v)&&p.toLowerCase()!==v).slice(0,5);
+ if(!pool.length){u.hidden=true;return}
+ u.innerHTML=pool.map(p=>`<li><button data-v="${esc(p)}"><span style="color:var(--muted)">⌕</span>${esc(p)}</button></li>`).join('');u.hidden=false;
+ u.querySelectorAll('button').forEach(b=>b.onclick=()=>{$('to').value=b.dataset.v;u.hidden=true;submit()})}
+function submit(){const x=t(),d=$('to').value.trim(),o=$('from').value.trim();$('sugg').hidden=true;
+ if(!d){err(x.errTo);$('to').focus();return}
+ if(!S.useMe&&!o){err(x.errFrom);$('from').focus();return}
+ $('err').hidden=true;S.dest=d;S.origin=o;
+ S.recent=[d,...S.recent.filter(r=>r!==d)].slice(0,6);store.set('recent',S.recent);
+ renderResult();renderRecent();
+ const sm=matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth';
+ requestAnimationFrame(()=>$('result').scrollIntoView({behavior:sm,block:'start'}))}
+function err(m){$('err').textContent=m;$('err').hidden=false}
+function renderResult(){const x=t(),el=$('result');if(!S.dest){el.innerHTML='';return}
+ const fav=S.favs.includes(S.dest),road=SC.find(s=>s.id===S.sc);
+ el.innerHTML=`<div class="card sheet">
+  <div class="rhead"><div class="dest"><small>${x.to}</small><h2>${esc(S.dest)}</h2><small>${x.from}: ${S.useMe?x.me:esc(S.origin)}</small></div>
+   <button class="fav ${fav?'on':''}" id="favBtn" aria-pressed="${fav}" aria-label="favorite">${fav?'★':'☆'}</button></div>
+  <a class="go" href="${gDir({nav:true})}" target="_blank" rel="noopener">${GPIN}${x.nav}</a>
+  <a class="alt" href="${gDir()}" target="_blank" rel="noopener">${x.view}</a>
+  <div class="sc-h"><span style="color:var(--primary)">${STAR}</span><h3>${x.scH}</h3></div>
+  <p class="sc-p">${x.scP}</p>
+  <div class="seg" role="group" aria-label="${x.avoid}">${SC.map(s=>`<button data-id="${s.id}" aria-pressed="${s.id===S.sc}">${x.avoid} ${s[S.lang]}</button>`).join('')}</div>
+  ${road.alts.map((a,i)=>`<a class="sc" href="${gDir({waypoint:a.q})}" target="_blank" rel="noopener"><span class="n">${i+1}</span><span><b>${a[S.lang]}</b><small>${S.lang==='ar'?a.dAr:a.dEn}</small></span><span class="ar">${x.open}</span></a>`).join('')}
+  <div class="howto">${x.how}</div></div>`;
+ $('favBtn').onclick=()=>{const on=S.favs.includes(S.dest);S.favs=on?S.favs.filter(f=>f!==S.dest):[S.dest,...S.favs];store.set('favs',S.favs);toast(on?x.unsaved:x.saved);renderResult()};
+ el.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>{S.sc=b.dataset.id;renderResult()})}
+function renderRecent(){const x=t();$('recT').textContent=x.recT;$('recClr').textContent=x.recClr;$('recClr').hidden=!S.recent.length;
+ $('recList').innerHTML=S.recent.length?S.recent.map(r=>`<button class="row" data-v="${esc(r)}"><span class="i">🕘</span><span><b>${esc(r)}</b></span></button>`).join(''):`<div class="empty">${x.recEmpty}</div>`;
+ $('recList').querySelectorAll('.row').forEach(b=>b.onclick=()=>{$('to').value=b.dataset.v;$('clr').hidden=false;submit()})}
+
+/* ---------- traffic ---------- */
+function renderTraffic(){const x=t();$('liveAll').href=gTraffic([24.7136,46.6753],12);
+ $('areas').innerHTML=AREAS.map(a=>`<a class="area" href="${gTraffic(a.ll,a.z)}" target="_blank" rel="noopener"><span class="e">${a.e}</span><b>${a[S.lang]}</b><small>${S.lang==='ar'?a.sAr:a.sEn}</small></a>`).join('')}
+
+/* ---------- favorites ---------- */
+function renderFavs(){const x=t();$('homeIn').value=S.home;$('workIn').value=S.work;
+ $('favList').innerHTML=S.favs.length?S.favs.map((f,i)=>`<div class="row" style="cursor:default"><span class="i">⭐</span><button class="row" style="padding:0;border:0" data-v="${esc(f)}"><b>${esc(f)}</b></button><button class="del x" data-i="${i}">${x.del}</button></div>`).join('')
+  :`<div class="empty"><div class="big">☆</div><b>${x.favEmpty}</b>${x.favEmptyP}</div>`;
+ $('favList').querySelectorAll('button[data-v]').forEach(b=>b.onclick=()=>{go('home');$('to').value=b.dataset.v;$('clr').hidden=false;submit()});
+ $('favList').querySelectorAll('.del').forEach(b=>b.onclick=()=>{S.favs.splice(+b.dataset.i,1);store.set('favs',S.favs);renderFavs()})}
+function savePlace(k){const v=$(k+'In').value.trim();S[k]=v;store.set(k,v);renderChips();toast(t().savedPlace)}
+
+/* ---------- shell ---------- */
+const TABS=['home','traffic','favs'];
+const ICONS=['<path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',
+ '<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',
+ '<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>'];
+function go(tab){S.tab=tab;TABS.forEach(k=>$('v-'+k).hidden=k!==tab);renderNav();if(tab==='traffic')renderTraffic();if(tab==='favs')renderFavs();window.scrollTo(0,0)}
+function renderNav(){$('nav').innerHTML=TABS.map((k,i)=>`<button data-t="${k}" ${S.tab===k?'aria-current="page"':''}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${ICONS[i]}</svg>${t().tabs[i]}</button>`).join('');
+ $('nav').querySelectorAll('button').forEach(b=>b.onclick=()=>go(b.dataset.t))}
+function renderText(){const x=t(),h=new Date().getHours();
+ document.documentElement.lang=S.lang;document.documentElement.dir=S.lang==='ar'?'rtl':'ltr';document.title=x.name;
+ $('bName').textContent=x.name;$('bSub').textContent=x.sub;$('langBtn').textContent=x.lang;$('langBtn').setAttribute('aria-label',S.lang==='ar'?'English':'العربية');
+ $('greet').textContent=h<12?x.gm:x.ge;$('hQ').textContent=x.q;$('meL').textContent=x.me;
+ $('from').placeholder=x.fromPh;$('to').placeholder=x.toPh;$('goBtn').textContent=x.go;
+ $('tH').textContent=x.tH;$('tP').textContent=x.tP;$('liveT').textContent=x.liveT;$('liveS').textContent=x.liveS;$('areaT').textContent=x.areaT;
+ $('fH').textContent=x.fH;$('fP').textContent=x.fP;$('homeL').textContent=x.homeL;$('workL').textContent=x.workL;
+ $('homeSave').textContent=$('workSave').textContent=x.save;$('homeIn').placeholder=$('workIn').placeholder=x.placePh;
+ $('favT').textContent=x.favT;$('about').textContent=x.about;
+ $('shareBtn').textContent='↗ '+x.share;renderInstall();
+ renderFrom();renderChips();renderResult();renderRecent();renderNav();if(S.tab==='traffic')renderTraffic();if(S.tab==='favs')renderFavs()}
+
+/* ---------- install as app ---------- */
+let deferred=null;
+const standalone=()=>matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+const isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e;renderInstall()});
+window.addEventListener('appinstalled',()=>{deferred=null;store.set('insHide',true);renderInstall()});
+function renderInstall(){const el=$('install'),x=t();
+ if(standalone()||store.get('insHide',false)){el.innerHTML='';return}
+ const hint=deferred?x.insA:(isIOS?x.insIOS:x.insAnd);
+ el.innerHTML=`<div class="install"><span class="ic"><svg width="22" height="22" viewBox="0 0 26 26"><path d="M13 1 L15.6 10.4 L25 13 L15.6 15.6 L13 25 L10.4 15.6 L1 13 L10.4 10.4 Z" fill="#fff"/></svg></span><div><h3>${x.insT}</h3><p>${hint}</p><div class="acts">${deferred?`<button class="yes" id="insYes">${x.insBtn}</button>`:''}<button class="no" id="insNo">${x.later}</button></div></div></div>`;
+ if(deferred)$('insYes').onclick=async()=>{deferred.prompt();await deferred.userChoice;deferred=null;renderInstall()};
+ $('insNo').onclick=()=>{store.set('insHide',true);renderInstall()}}
+async function shareApp(){const x=t(),url=location.href.split('#')[0];
+ try{if(navigator.share){await navigator.share({title:x.name,text:x.shareTxt,url});return}
+  await navigator.clipboard.writeText(url);toast(x.copied)}catch(e){}}
+if('serviceWorker' in navigator&&location.protocol==='https:'){navigator.serviceWorker.register('sw.js').catch(()=>{})}
+
+/* wiring */
+$('shareBtn').onclick=shareApp;
+$('langBtn').onclick=()=>{S.lang=S.lang==='ar'?'en':'ar';store.set('lang',S.lang);renderText()};
+$('fromToggle').onclick=()=>{S.useMe=!S.useMe;renderFrom();if(!S.useMe)$('from').focus();if(S.dest)renderResult()};
+$('to').addEventListener('input',()=>{$('err').hidden=true;$('clr').hidden=!$('to').value;suggest()});
+$('to').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();submit()}});
+$('from').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('to').focus()}});
+$('clr').onclick=()=>{$('to').value='';$('clr').hidden=true;$('sugg').hidden=true;$('to').focus()};
+$('goBtn').onclick=submit;
+$('recClr').onclick=()=>{S.recent=[];store.set('recent',[]);renderRecent()};
+$('homeSave').onclick=()=>savePlace('home');$('workSave').onclick=()=>savePlace('work');
+$('homeIn').addEventListener('keydown',e=>{if(e.key==='Enter')savePlace('home')});
+$('workIn').addEventListener('keydown',e=>{if(e.key==='Enter')savePlace('work')});
+document.addEventListener('click',e=>{if(!e.target.closest('.trip')&&!e.target.closest('#sugg'))$('sugg').hidden=true});
+
+renderText();go('home');
+(function(){const sp=$('splash'),red=matchMedia('(prefers-reduced-motion: reduce)').matches;$('spN').textContent=t().name;$('spT').textContent=t().tag;
+ setTimeout(()=>{sp.classList.add('out');setTimeout(()=>sp.remove(),600)},red?150:1300)})();
+</script>
+</body>
+</html>
