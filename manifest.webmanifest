@@ -1,0 +1,18 @@
+{
+  "name": "نوڤا | Nova",
+  "short_name": "نوڤا",
+  "description": "طريقك أذكى.. وزحمة أقل. اختصارات موثوقة لطرق الرياض مع قوقل ماب.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#7B67DD",
+  "theme_color": "#F7F5FC",
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png"},
+    {"src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}
